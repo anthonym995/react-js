@@ -1,0 +1,69 @@
+/*
+ *Parcel is a Bundler and Beast
+ *
+ *Created a server
+ *HMR - Hot Module Reloading
+ *File Watcher algorithm
+ *Bundling
+ *Minifying
+ *Cleaning our code
+ *Dev and production Build
+ *Super fast build Algorithm
+ *Image optimization
+ *Caching while developement
+ *Compression
+ *Compatible with other version of Browser
+ *HTTPS on dev
+ *port number managing
+ *Consistent Hashing Algorithm
+ *Zero Config
+ *Tree Shaking - Removing unwanted code
+ *
+ * Tnsitive Dependencies
+ *
+ *
+ *Babel is A Compiler for both javascript and JSX
+ *Babel user the React.creatElement for converting the JSX to HTML
+ *JSX => HTML like syntax and it is called as JSX Expression
+ *
+ *
+ *
+ */
+
+ // JSX => React.creatElement => Object => HTML(DOM)
+
+
+ // React Component => Everyting is component in react
+// Functional Component - New Method
+// Class Based Component - Old Method
+
+
+// Functional component - This is nothing but a javascript function 
+// Name of the component starts with letter
+
+In industries config drive UI is used 
+
+/**
+AppLayout  
+    Header
+        - Logo
+        - Nav Items(Right Side)
+        - Cart
+    Body
+        - Search bar
+        - Restaurant List
+            - Restaurant Card
+                - Images
+                - Name
+                - Rating 
+                - Cusines
+    Footer
+        - links
+        - Copywirte
+ */
+
+useEfftect:
+    Empty Dependencie array => once after render
+    Dependencie array [search word] => once after intitial render + everytime after render (my search text changes)
+    
+
