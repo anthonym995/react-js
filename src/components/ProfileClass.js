@@ -23,11 +23,10 @@ class ProfileClass extends React.Component {
   }
 
   render() {
-    console.log("Child component Render");
     const { name, avatar_url, bio, location } = this.state.userInfo;
     return (
       <>
-        <div className="user-profile">
+        <div className="flex items-center max-w-96 m-5 p-5 border rounded-lg shadow flex-col">
           <img className="avatar" src={avatar_url} alt={name} />
           <div className="user-info">
             <h2>{name}</h2>

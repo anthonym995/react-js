@@ -5,14 +5,14 @@ const Error = () => {
   const { status, statusText } = err;
 
   return (
-    <div className="not-found-container">
-      <h1 className="not-found-text">{status}</h1>
-      <p className="not-found-description">{statusText}</p>
-      <p className="not-found-description">Oops somthing went wrong!!</p>
+    <div className="flex flex-col items-center justify-center h-[100vh] text-center">
+      <h1 className="text-8xl text-[#e74c3c] mb-3">{status}</h1>
+      <p className="text-2xl text-[#555]">{statusText}</p>
+      <p className="text-2xl text-[#555]">Oops somthing went wrong!!</p>
       <br />
       <br />
-      <Link to="/" className="goback">
-        <h2>Go back to home</h2>
+      <Link to="/" className="text-[orange] hover:underline">
+        <h2 className="text-2xl">Go back to home</h2>
       </Link>
     </div>
   );

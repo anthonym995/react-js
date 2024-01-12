@@ -15,8 +15,8 @@ const ListItems = ({ listItems }) => {
           ""
         ) : (
           <div key={i}>
-            <div>
-              <h1 className="font-bold">{title}</h1>
+            <div className="m-3 border p-2 rounded bg-sky-200">
+              <h1 className="font-bold text-slate-600">{title}-{itemCards.length} items</h1>
             </div>
 
             {itemCards?.map((item, i) => {
@@ -36,7 +36,7 @@ const ListItems = ({ listItems }) => {
                       />
                     ) : (
                       <img
-                        className="rounded-[50%] w-[160px] h-[160px] object-fill"
+                        className="rounded-[50%] w-[160px] h-[160px] object-cover"
                         src={placeHolder}
                         alt={name}
                       />

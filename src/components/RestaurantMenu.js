@@ -22,7 +22,7 @@ const RestaurantMenu = () => {
     <Spinner />
   ) : (
     <div className="container mx-auto">
-      <div className="flex flex-row h-[450]">
+      <div className="flex flex-row h-[471px]">
         <div className="w-[30%] border m-2 p-3 rounded-lg flex items-center flex-col">
           <div>
             <img
