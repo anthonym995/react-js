@@ -1,10 +1,10 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
-import Shimmer from "./Shimmer";
-import NoResultFound from "./NoResult";
+import Shimmer from "../utils/Shimmer";
+import NoResultFound from "../utils/NoResult";
 import { Link } from "react-router-dom";
-import ErrorApi from "./ErrorApi";
+import ErrorApi from "../utils/ErrorApi";
 import { searchFilter } from "../utils/helper";
 import { swiggyURL } from "../constant";
 import useOnline from "../utils/useOnline";
@@ -70,7 +70,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-row flex-wrap justify-start gap-2 p-1">
+      <div className="grid justify-self-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-3">
         {filteredRestaurants?.length === 0 ? (
           <NoResultFound />
         ) : (

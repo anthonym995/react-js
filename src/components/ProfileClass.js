@@ -1,39 +1,46 @@
 import React from "react";
-import Spinner from "./Spinner";
+import AboutContext from "../context/AboutContext";
+
+const ReviewCard = ({ review }) => {
+  return (
+    <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg p-6 mb-6">
+      <div className="flex items-center mb-4">
+        <div className="rounded-full bg-blue-500 h-12 w-12 flex items-center justify-center mr-4">
+          <span className="text-white font-bold">{review.rating}</span>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold">{review.name}</h3>
+          <p className="text-gray-500">{review.date}</p>
+        </div>
+      </div>
+      <p className="text-gray-700">{review.comment}</p>
+    </div>
+  );
+};
 
 class ProfileClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userInfo: {},
-    };
-  }
-
-  async componentDidMount() {
-    try {
-      const url = "https://api.github.com/users/anthonym995";
-      const data = await fetch(url);
-      const json = await data.json();
-      this.setState({
-        userInfo: json,
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    this.state = {};
   }
 
   render() {
-    const { name, avatar_url, bio, location } = this.state.userInfo;
     return (
       <>
-        <div className="flex items-center max-w-96 m-5 p-5 border rounded-lg shadow flex-col">
-          <img className="avatar" src={avatar_url} alt={name} />
-          <div className="user-info">
-            <h2>{name}</h2>
-            <h3>{bio}</h3>
-            <p> {location}</p>
-          </div>
-        </div>
+        <AboutContext.Consumer>
+          {({ reviews }) => (
+            <div className="container mx-auto mt-8">
+              <h1 className="text-3xl font-semibold  text-center text-green-600 mt-4 mb-5">
+                Our Reviews
+              </h1>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {reviews.map((review, index) => (
+                  <ReviewCard key={index} review={review} />
+                ))}              
+              </div>
+            </div>
+          )}
+        </AboutContext.Consumer>
       </>
     );
   }

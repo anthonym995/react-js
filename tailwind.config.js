@@ -8,6 +8,7 @@ module.exports = {
         myBtn: "#4CAF50",
         myText: "#3498db",
       },
+      
     },
   },
   plugins: [],
