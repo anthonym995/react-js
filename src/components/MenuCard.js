@@ -16,8 +16,8 @@ const EmptyFoodList = () => {
 };
 
 const Card = (item) => {
- const { name, id, imageId, category, description, price } = item;
- const dispatch = useDispatch();
+  const { name, id, imageId, category, description, price } = item;
+  const dispatch = useDispatch();
   const handleAddItem = () => {
     dispatch(addItem(item));
   };
@@ -27,20 +27,22 @@ const Card = (item) => {
       className="mr-3 my-3 flex flex-row p-2 rounded-lg shadow border border-solid border-[#ccc]"
       key={id}
     >
-      <div className="mr-5 rounded-[50%] w-20 h-20 flex justify-center items-center bg-[lightgrey]">
-        {imageId ? (
-          <img
-            className="rounded-[50%] !w-20 h-20"
-            src={imgURL + imageId}
-            alt={name}
-          />
-        ) : (
-          <img
-            className="rounded-[50%] !w-20 h-20"
-            src={placeHolder}
-            alt={name}
-          />
-        )}
+      <div>
+        <div className="mr-5 rounded-[50%] w-20 h-20 flex justify-center self-baseline items-center bg-[lightgrey]">
+          {imageId ? (
+            <img
+              className="rounded-[50%] w-20 h-20"
+              src={imgURL + imageId}
+              alt={name}
+            />
+          ) : (
+            <img
+              className="rounded-[50%] w-20 h-20"
+              src={placeHolder}
+              alt={name}
+            />
+          )}
+        </div>
       </div>
       <div className="flex flex-row justify-between w-full">
         <div className="w-full">
@@ -56,7 +58,7 @@ const Card = (item) => {
         <div className="w-40 flex justify-center items-center">
           <button
             className="text-white text-semibold px-4 py-2 bg-blue-600 hover:bg-blue-300 rounded-md"
-            onClick={()=> handleAddItem(item)}
+            onClick={() => handleAddItem(item)}
           >
             AddItem
           </button>
@@ -76,11 +78,11 @@ const MenuCard = ({ listItems }) => {
   return !foodList ? (
     <EmptyFoodList />
   ) : (
-    <section className="flex flex-row my-2">
-      <div className=" w-[20%] h-[500px] border flex flex-col  rounded-md mr-3 p-2 overflow-y-scroll overflow-x-hidden scrollbar">
+    <section className="flex flex-col my-2">
+      <div className=" w-auto border flex flex-row flex-wrap rounded-md mr-3 p-2 ">
         {listItems.map((list, i) => {
           const { title, itemCards } = list?.card?.card;
-          //   console.log(title)
+
           return !listItems ? (
             <>
               <h1>No Items</h1>
@@ -89,7 +91,7 @@ const MenuCard = ({ listItems }) => {
             ""
           ) : (
             <button
-              className="text-nowrap text-left font-semibold bg-blue-600 hover:bg-blue-400 text-white px-2 py-1 rounded-lg m-1"
+              className="text-nowrap text-left font-semibold border text-gray-700 hover:underline px-2 py-1 rounded-lg m-1"
               key={i}
               onClick={() => setFoodList(list?.card?.card)}
             >
@@ -99,16 +101,15 @@ const MenuCard = ({ listItems }) => {
           );
         })}
       </div>
-      <div className="w-[80%] h-[500px] overflow-y-scroll scrollbar">
+
+      <div className="w-auto">
         <h2 className="text-2xl text-green-700 text-bold mt-3 mb-4">
           {foodList?.title}
         </h2>
         {foodList?.itemCards.map((item, i) => {
           const { name, id, imageId, category, description, price } =
             item?.card?.info;
-          return (
-            <Card {...item?.card?.info} /> 
-          );
+          return <Card {...item?.card?.info} key={i} />;
         })}
       </div>
     </section>

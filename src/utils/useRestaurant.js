@@ -11,9 +11,10 @@ const useRestaurant = (resId) => {
   async function getRestaurant() {
     const data = await fetch(FETCH_URL + resId);
     const json = await data.json();
-    setRestaurant(json?.data?.cards[0]?.card?.card?.info);
+    console.log(json);
+    setRestaurant(json?.data?.cards[2]?.card?.card?.info);
     setListItems(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
     );
   }
 
